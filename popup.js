@@ -8,14 +8,19 @@ document.addEventListener('DOMContentLoaded', function() {
   const styleSelect = document.getElementById('styleSelect');
   const actionButtons = document.getElementById('actionButtons');
 
-  // 加载保存的SVG源码
-  chrome.storage.local.get(['svgSource'], function(result) {
+  // 加载保存的SVG源码和样式
+  chrome.storage.local.get(['svgSource', 'selectedStyle'], function(result) {
     if (result.svgSource) {
       svgInput.value = result.svgSource;
       if (isSVG(result.svgSource)) {
         message.textContent = '有效的SVG源码';
+        message.classList.remove('invalid');
         confirmBtn.disabled = false;
       }
+    }
+    if (result.selectedStyle) {
+      document.body.className = result.selectedStyle;
+      styleSelect.value = result.selectedStyle;
     }
   });
 
@@ -26,9 +31,11 @@ document.addEventListener('DOMContentLoaded', function() {
   svgInput.addEventListener('input', function() {
     if (isSVG(this.value)) {
       message.textContent = '有效的SVG源码';
+      message.classList.remove('invalid');
       confirmBtn.disabled = false;
     } else {
       message.textContent = '无效的SVG源码';
+      message.classList.add('invalid');
       confirmBtn.disabled = true;
     }
   });
@@ -41,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
   clearInputBtn.addEventListener('click', function() {
     svgInput.value = '';
     message.textContent = '';
+    message.classList.remove('invalid');
     confirmBtn.disabled = true;
     chrome.storage.local.remove('svgSource');
     actionButtons.style.display = 'none';
@@ -57,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   styleSelect.addEventListener('change', function() {
     document.body.className = this.value;
+    chrome.storage.local.set({selectedStyle: this.value}); // 保存选择的样式
   });
 
   function renderSVG() {

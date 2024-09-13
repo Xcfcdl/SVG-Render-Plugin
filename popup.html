@@ -8,14 +8,14 @@
 <body>
   <h1>SVG 渲染器</h1>
   <div id="inputContainer">
+    <div id="message" style="position: absolute; right: 5px; top: -25px;"></div> <!-- 调整位置 -->
     <textarea id="svgInput" placeholder="请输入SVG源码"></textarea>
     <button id="clearInput">×</button>
   </div>
   <div id="buttonContainer">
-    <button id="confirmBtn" disabled>确认</button>
-    <button id="exitBtn">退出</button>
+    <button id="confirmBtn" disabled style="flex: 2;">确认</button> <!-- 宽度调整 -->
+    <button id="exitBtn" style="flex: 0.95;">退出</button> <!-- 宽度调整 -->
   </div>
-  <div id="message"></div>
   <div id="styleSelector">
     <label for="styleSelect">选择样式：</label>
     <select id="styleSelect">
