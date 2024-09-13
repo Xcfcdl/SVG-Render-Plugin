@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>SVG 渲染器</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <h1>SVG 渲染器</h1>
+  <div id="inputContainer">
+    <textarea id="svgInput" placeholder="请输入SVG源码"></textarea>
+    <button id="clearInput">×</button>
+  </div>
+  <div id="buttonContainer">
+    <button id="confirmBtn" disabled>确认</button>
+    <button id="exitBtn">退出</button>
+  </div>
+  <div id="message"></div>
+  <div id="styleSelector">
+    <label for="styleSelect">选择样式：</label>
+    <select id="styleSelect">
+      <option value="default">默认</option>
+      <option value="dark">深色</option>
+      <option value="light">浅色</option>
+      <option value="colorful">多彩</option>
+      <option value="minimal">简约</option>
+      <option value="neumorphism">拟物化</option>
+    </select>
+  </div>
+  <div id="svgContainer" style="width: 300px; height: 200px; overflow: auto;"></div>
+  <div id="actionButtons" style="display: none;">
+    <button id="saveSVG">保存为SVG</button>
+    <button id="savePNG">保存为PNG</button>
+    <button id="copyPNG">复制为PNG</button>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
