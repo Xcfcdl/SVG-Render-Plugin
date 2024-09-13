@@ -19,24 +19,6 @@ SVG 渲染器是一个Chrome浏览器插件，允许用户输入SVG源码并实�
 ## 配置
 插件不需要额外的配置，所有功能都可以通过插件界面直接使用。
 
-## 开发
-如果你想为此插件做贡献，请按照以下步骤进行：
-
-1. 克隆此仓库：
-    ```sh
-    git clone https://github.com/your-username/svg-renderer.git
-    ```
-2. 安装依赖：
-    ```sh
-    cd svg-renderer
-    npm install
-    ```
-3. 编译插件：
-    ```sh
-    npm run build
-    ```
-4. 在Chrome浏览器中加载已解压的扩展程序进行调试。
-
 ## 贡献
 欢迎任何形式的贡献！请提交Pull Request或创建Issue来报告问题或提出建议。
 
